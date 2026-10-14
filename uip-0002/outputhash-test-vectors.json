@@ -1,0 +1,58 @@
+{
+  "specification": "UIP-2",
+  "operation": "OP_OUTPUTHASH",
+  "tag": "OutputHash",
+  "digest_encoding": "32-byte SHA-256 output order",
+  "amount_unit": "Utocoin base units",
+  "vectors": [
+    {
+      "name": "slash burn output",
+      "amount": 80000,
+      "script_pub_key": "6a05534c415348",
+      "serialized_output": "8038010000000000076a05534c415348",
+      "output_hash": "befec93f2d1e6035b100a7c3afa7cf555f16012d6cbe1494586436570892350e"
+    },
+    {
+      "name": "reporter reward output",
+      "amount": 19000,
+      "script_pub_key": "5120c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "serialized_output": "384a000000000000225120c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "output_hash": "394899f4dea5a925ff25e41733dcbe52e3c9a3c20f6c4972a0e03e87e5891594"
+    },
+    {
+      "name": "changed burn amount",
+      "amount": 79999,
+      "script_pub_key": "6a05534c415348",
+      "serialized_output": "7f38010000000000076a05534c415348",
+      "output_hash": "7d2de0c21b29bfced83226c00cc038c76da8ff24235c20cda768b25d08b246a0"
+    }
+  ],
+  "script_cases": [
+    {
+      "name": "first output",
+      "output_count": 2,
+      "output_index": 0,
+      "valid": true,
+      "expected_hash_vector": "slash burn output"
+    },
+    {
+      "name": "second output",
+      "output_count": 2,
+      "output_index": 1,
+      "valid": true,
+      "expected_hash_vector": "reporter reward output"
+    },
+    {
+      "name": "negative index",
+      "output_count": 2,
+      "output_index": -1,
+      "valid": false
+    },
+    {
+      "name": "index equal to output count",
+      "output_count": 2,
+      "output_index": 2,
+      "valid": false
+    }
+  ]
+}
